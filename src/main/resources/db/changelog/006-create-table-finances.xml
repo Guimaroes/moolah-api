@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<databaseChangeLog  
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"  
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+  xmlns:pro="http://www.liquibase.org/xml/ns/pro"  
+  xsi:schemaLocation="
+  	http://www.liquibase.org/xml/ns/dbchangelog 
+  	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">  
+    
+	<changeSet id="006" author="guimaroes">
+		<sql>
+			create table finances (
+				id serial primary key,
+				name varchar not null,
+				value decimal not null,
+				type_id serial,
+				user_id serial,
+				constraint fk_type 
+					foreign key(type_id)
+						references types(id),
+				constraint fk_user 
+					foreign key(user_id)
+						references users(id)
+			);
+		</sql>
+		<rollback>
+			<sql>
+				drop table if exists finances;
+			</sql>
+		</rollback>
+	</changeSet>
+</databaseChangeLog>

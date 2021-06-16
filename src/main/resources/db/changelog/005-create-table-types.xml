@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<databaseChangeLog  
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"  
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+  xmlns:pro="http://www.liquibase.org/xml/ns/pro"  
+  xsi:schemaLocation="
+  	http://www.liquibase.org/xml/ns/dbchangelog 
+  	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">  
+    
+	<changeSet id="005" author="guimaroes">
+		<sql>
+			create table types (
+				id serial primary key,
+				name varchar not null,
+				category_id serial,
+				user_id serial,
+				constraint fk_category 
+					foreign key(category_id)
+						references categories(id),
+				constraint fk_user 
+					foreign key(user_id)
+						references users(id)
+			);
+		</sql>
+		<rollback>
+			<sql>
+				drop table if exists types;
+			</sql>
+		</rollback>
+	</changeSet>
+</databaseChangeLog>

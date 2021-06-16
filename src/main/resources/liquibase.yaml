@@ -1,0 +1,6 @@
+changeLogFile: db/changelog.xml
+classpath: postgresql-42.2.20.jar
+driver: org.postgresql.Driver
+password: postgres
+url: jdbc:postgresql://localhost:5432/moolah
+username: postgres

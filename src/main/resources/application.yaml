@@ -1,0 +1,19 @@
+spring:
+  jpa:
+    show-sql: true
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/moolah
+    username: postgres
+    password: postgres
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog.xml
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/moolah
+    user: postgres
+    password: postgres
+moolah:
+  app:
+    jwtSecret: moolahSecretKey
+    jwtExpirationMs: 1800000
