@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TypeRepository extends JpaRepository<Type, Long> {
 
-	List<Type> findAllByUserId(Long userId);
+	List<Type> findAllByUserIdOrderByIdDesc(Long userId);
 }

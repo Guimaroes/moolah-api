@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface FinanceRepository extends JpaRepository<Finance, Long> {
 
-	List<Finance> findAllByUserId(Long userId);
+	List<Finance> findAllByUserIdOrderByIdDesc(Long userId);
 }

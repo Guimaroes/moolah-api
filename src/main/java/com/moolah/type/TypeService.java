@@ -48,7 +48,7 @@ public class TypeService {
 	}
 	
 	public List<Type> findTypesByUserId(Long userId) {
-		return typeRepository.findAllByUserId(userId);
+		return typeRepository.findAllByUserIdOrderByIdDesc(userId);
 	}
 	
 	public List<TypeDTO> findTypeDTOsByUserId(Long userId) {

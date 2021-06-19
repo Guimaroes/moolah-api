@@ -48,7 +48,7 @@ public class FinanceService {
 	}
 	
 	public List<Finance> findFinancesByUserId(Long userId) {
-		return financeRepository.findAllByUserId(userId);
+		return financeRepository.findAllByUserIdOrderByIdDesc(userId);
 	}
 	
 	public List<FinanceDTO> findFinanceDTOsByUserId(Long userId) {
