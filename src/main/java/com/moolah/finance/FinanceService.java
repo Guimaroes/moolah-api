@@ -30,9 +30,7 @@ public class FinanceService {
 	}
 	
 	public Finance findFinanceById(Long id) {
-		return financeRepository.findById(id).orElseThrow(() -> {
-			throw new EntityNotFoundException("Finance not found.");
-		});
+		return financeRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Finance not found."));
 	}
 	
 	public FinanceDTO findFinanceDTOById(Long id) {
