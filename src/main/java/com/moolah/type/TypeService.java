@@ -30,9 +30,7 @@ public class TypeService {
 	}
 	
 	public Type findTypeById(Long id) {
-		return typeRepository.findById(id).orElseThrow(() -> {
-			throw new EntityNotFoundException("Type not found.");
-		});
+		return typeRepository.findById(id).<EntityNotFoundException>orElseThrow(() -> new EntityNotFoundException("Type not found."));
 	}
 	
 	public TypeDTO findTypeDTOById(Long id) {
