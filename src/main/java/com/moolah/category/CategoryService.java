@@ -25,9 +25,7 @@ public class CategoryService {
 	}
 	
 	public Category findCategoryById(Long id) {
-		return categoryRepository.findById(id).orElseThrow(() -> {
-			throw new EntityNotFoundException("Category not found.");
-		});
+		return categoryRepository.findById(id).<EntityNotFoundException>orElseThrow(() -> new EntityNotFoundException("Category not found."));
 	}
 
 	public CategoryDTO findCategoryDTOById(Long id) {
