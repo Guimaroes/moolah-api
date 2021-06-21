@@ -4,6 +4,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -162,6 +164,49 @@ public class FinanceMapperTest {
 	}
 	
 	@Test
+	public void MappedFinanceDTOList_ShouldBeSameSize_GivenFinanceList() {
+	
+		Finance finance1 = new Finance();
+		Finance finance2 = new Finance();
+		Finance finance3 = new Finance();
+		
+		List<Finance> finances = new ArrayList<Finance>();
+		
+		finances.add(finance1);
+		finances.add(finance2);
+		finances.add(finance3);
+		
+		List<FinanceDTO> financeDTOs = financeMapper.toFinanceDTOList(finances);
+		
+		assertEquals(finances.size(), financeDTOs.size());
+	}
+	
+	@Test
+	public void MappedFinanceList_ShouldBeSameSize_GivenFinanceDTOList() {
+		
+		FinanceDTO financeDTO1 = new FinanceDTO();
+		FinanceDTO financeDTO2 = new FinanceDTO();
+		FinanceDTO financeDTO3 = new FinanceDTO();
+		
+		financeDTO1.setUser(new UserDTO());
+		financeDTO2.setUser(new UserDTO());
+		financeDTO3.setUser(new UserDTO());
+		
+		financeDTO1.setType(new TypeDTO());
+		financeDTO2.setType(new TypeDTO());
+		financeDTO3.setType(new TypeDTO());
+		
+		List<FinanceDTO> financeDTOs = new ArrayList<FinanceDTO>();
+		financeDTOs.add(financeDTO1);
+		financeDTOs.add(financeDTO2);
+		financeDTOs.add(financeDTO3);
+		
+		List<Finance> finances = financeMapper.toFinanceList(financeDTOs);
+		
+		assertEquals(financeDTOs.size(), finances.size());
+	}
+	
+	@Test
 	public void MappedFinanceDTO_ShouldBeNull() {
 		
 		Finance finance = null;
@@ -189,5 +234,25 @@ public class FinanceMapperTest {
 		Finance finance = financeMapper.toNewFinance(createFinanceDTO);
 		
 		assertNull(finance);
+	}
+	
+	@Test
+	public void MappedFinanceList_ShouldBeNull() {
+		
+		List<FinanceDTO> financeDTOs = null;
+		
+		List<Finance> finances = financeMapper.toFinanceList(financeDTOs);
+		
+		assertNull(finances);
+	}
+	
+	@Test
+	public void MappedFinanceDTOList_ShouldBeNull() {
+		
+		List<Finance> finances = null;
+		
+		List<FinanceDTO> financeDTOs = financeMapper.toFinanceDTOList(finances);
+		
+		assertNull(financeDTOs);
 	}
 }
