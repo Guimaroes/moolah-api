@@ -17,12 +17,12 @@ import javax.validation.constraints.NotBlank;
 
 import com.moolah.role.Role;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @Entity
-@NoArgsConstructor
 @Table(name = "users")
 public class User {
 

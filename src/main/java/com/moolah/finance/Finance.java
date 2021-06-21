@@ -14,9 +14,11 @@ import javax.persistence.Table;
 import com.moolah.type.Type;
 import com.moolah.user.User;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "finances")
 public class Finance {

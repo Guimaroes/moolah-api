@@ -12,9 +12,11 @@ import javax.persistence.Table;
 import com.moolah.category.Category;
 import com.moolah.user.User;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "types")
 public class Type {
