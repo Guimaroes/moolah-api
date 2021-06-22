@@ -3,16 +3,16 @@ spring:
     show-sql: true
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/moolah
-    username: postgres
-    password: postgres
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/moolah
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
   liquibase:
     enabled: true
     change-log: classpath:db/changelog.xml
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/moolah
-    user: postgres
-    password: postgres
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/moolah
+    user: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
 moolah:
   app:
     jwtSecret: moolahSecretKey

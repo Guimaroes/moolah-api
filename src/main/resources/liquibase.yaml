@@ -1,6 +1,6 @@
 changeLogFile: db/changelog.xml
 classpath: postgresql-42.2.20.jar
 driver: org.postgresql.Driver
-password: postgres
-url: jdbc:postgresql://localhost:5432/moolah
-username: postgres
+password: ${DB_PASSWORD:postgres}
+url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/moolah
+username: ${DB_USERNAME:postgres}
